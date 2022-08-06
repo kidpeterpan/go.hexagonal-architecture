@@ -11,12 +11,12 @@ import (
 )
 
 func main() {
-	var core ports.Arithmetic
-	core = arithmetic.NewAdapter()
+	var arithmeticCore ports.ArithmeticPort
+	arithmeticCore = arithmetic.NewAdapter()
 	var database ports.DbPort
 	database = db.NewAdapter()
 	var application ports.ApiPort
-	application = api.NewAdapter(core, database)
+	application = api.NewAdapter(arithmeticCore, database)
 
 	result, err := application.GetAddition(2, 3)
 	if err != nil {

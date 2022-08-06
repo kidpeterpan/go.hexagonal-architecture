@@ -3,11 +3,11 @@ package api
 import "go.hexagonal-architecture/internal/ports"
 
 type Adapter struct {
-	arith ports.Arithmetic
+	arith ports.ArithmeticPort
 	db    ports.DbPort
 }
 
-func NewAdapter(arith ports.Arithmetic, db ports.DbPort) *Adapter {
+func NewAdapter(arith ports.ArithmeticPort, db ports.DbPort) *Adapter {
 	return &Adapter{
 		arith: arith,
 		db:    db,
