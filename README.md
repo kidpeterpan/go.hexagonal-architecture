@@ -17,5 +17,5 @@ docker-compose down
 # generate proto
 
 ```shell
-protoc --go_out=internal/adapters/framework/left/grpc --proto_path=internal/adapters/framework/left/grpc/proto internal/adapters/framework/left/grpc/proto/*.proto
+protoc --go_out=internal/adapters/framework/left/grpc --go-grpc_out=internal/adapters/framework/left/grpc --proto_path=internal/adapters/framework/left/grpc/proto internal/adapters/framework/left/grpc/proto/*.proto
 ```
