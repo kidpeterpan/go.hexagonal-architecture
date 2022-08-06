@@ -1,23 +1,23 @@
 package arithmetic
 
-type Arithmetic struct {
+type Adapter struct {
 }
 
-func NewArithmetic() *Arithmetic {
-	return &Arithmetic{}
+func NewAdapter() *Adapter {
+	return &Adapter{}
 }
 
-func (a Arithmetic) Additional(x int32, y int32) (int32, error) {
+func (a Adapter) Additional(x int32, y int32) (int32, error) {
 	return x + y, nil
 }
 
-func (a Arithmetic) Subtraction(x int32, y int32) (int32, error) {
+func (a Adapter) Subtraction(x int32, y int32) (int32, error) {
 	return x - y, nil
 }
 
-func (a Arithmetic) Multiplication(x int32, y int32) (int32, error) {
+func (a Adapter) Multiplication(x int32, y int32) (int32, error) {
 	return x * y, nil
 }
-func (a Arithmetic) Division(x int32, y int32) (int32, error) {
+func (a Adapter) Division(x int32, y int32) (int32, error) {
 	return x / y, nil
 }

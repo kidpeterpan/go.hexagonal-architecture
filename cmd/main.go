@@ -10,7 +10,7 @@ import (
 
 func main() {
 	var arith ports.Arithmetic
-	arith = arithmetic.NewArithmetic()
+	arith = arithmetic.NewAdapter()
 	res, err := arith.Additional(3, 2)
 	if err != nil {
 		log.Fatalf("Additional error: %v", err)
