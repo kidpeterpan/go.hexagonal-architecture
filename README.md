@@ -1,6 +1,9 @@
 # go.hexagonal-architecture
 
-- `app` layer & `core` layer completely decoupling
+- each service communicate with `port` interface
+- each service completely de-coupling
+
+![hexagonal.png](hexagonal.png)
 
 ## start deps
 
