@@ -35,9 +35,9 @@ func main() {
 		}
 	}()
 
-	listen, err := net.Listen("tcp", ":9000")
+	listen, err := net.Listen("tcp", ":50051")
 	if err != nil {
-		log.Fatalf("failed to listen on port 9000: %v", err)
+		log.Fatalf("failed to listen on port 50051: %v", err)
 	}
 
 	grpcServer := grpc.NewServer()
