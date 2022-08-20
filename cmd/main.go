@@ -6,9 +6,10 @@ import (
 
 	"go.hexagonal-architecture/internal/adapters/app/api"
 	"go.hexagonal-architecture/internal/adapters/core/arithmetic"
-	"go.hexagonal-architecture/internal/adapters/framework/left/grpc/pb"
+	"go.hexagonal-architecture/internal/adapters/framework/left/grpc/server"
 	"go.hexagonal-architecture/internal/adapters/framework/right/db"
 	"go.hexagonal-architecture/internal/ports"
+	"go.hexagonal-architecture/internal/ports/framework_left"
 	"google.golang.org/grpc"
 )
 
@@ -18,16 +19,13 @@ func main() {
 	var core ports.ArithmeticPort
 	var database ports.DbPort
 	var app ports.ApiPort
-	var arithmeticServiceServer pb.ArithmeticServiceServer
+	var arithmeticServiceServer framework_left.ArithmeticServiceServer
 
 	// plugin adapter
 	core = arithmetic.NewAdapter()
 	database = db.NewAdapter()
 	app = api.NewAdapter(core, database)
-
-	// force to pb package (not ports package)
-	// because mustEmbedUnimplementedArithmeticServiceServer()
-	arithmeticServiceServer = pb.NewAdapter(app)
+	arithmeticServiceServer = server.NewAdapter(app)
 
 	defer func() {
 		if err := database.CloseDbConnection(); err != nil {
@@ -41,7 +39,7 @@ func main() {
 	}
 
 	grpcServer := grpc.NewServer()
-	pb.RegisterArithmeticServiceServer(grpcServer, arithmeticServiceServer)
+	framework_left.RegisterArithmeticServiceServer(grpcServer, arithmeticServiceServer)
 
 	log.Println("listening on port 9000")
 

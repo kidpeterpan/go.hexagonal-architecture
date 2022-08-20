@@ -4,13 +4,14 @@
 // 	protoc        v3.19.4
 // source: arithmetic_svc.proto
 
-package pb
+package framework_left
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -164,18 +165,18 @@ func file_arithmetic_svc_proto_rawDescGZIP() []byte {
 
 var file_arithmetic_svc_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_arithmetic_svc_proto_goTypes = []interface{}{
-	(*Answer)(nil),              // 0: pb.Answer
-	(*OperationParameters)(nil), // 1: pb.OperationParameters
+	(*Answer)(nil),              // 0: framework_left.Answer
+	(*OperationParameters)(nil), // 1: framework_left.OperationParameters
 }
 var file_arithmetic_svc_proto_depIdxs = []int32{
-	1, // 0: pb.ArithmeticService.GetAddition:input_type -> pb.OperationParameters
-	1, // 1: pb.ArithmeticService.GetSubtraction:input_type -> pb.OperationParameters
-	1, // 2: pb.ArithmeticService.GetMultiplication:input_type -> pb.OperationParameters
-	1, // 3: pb.ArithmeticService.GetDivision:input_type -> pb.OperationParameters
-	0, // 4: pb.ArithmeticService.GetAddition:output_type -> pb.Answer
-	0, // 5: pb.ArithmeticService.GetSubtraction:output_type -> pb.Answer
-	0, // 6: pb.ArithmeticService.GetMultiplication:output_type -> pb.Answer
-	0, // 7: pb.ArithmeticService.GetDivision:output_type -> pb.Answer
+	1, // 0: framework_left.ArithmeticService.GetAddition:input_type -> framework_left.OperationParameters
+	1, // 1: framework_left.ArithmeticService.GetSubtraction:input_type -> framework_left.OperationParameters
+	1, // 2: framework_left.ArithmeticService.GetMultiplication:input_type -> framework_left.OperationParameters
+	1, // 3: framework_left.ArithmeticService.GetDivision:input_type -> framework_left.OperationParameters
+	0, // 4: framework_left.ArithmeticService.GetAddition:output_type -> framework_left.Answer
+	0, // 5: framework_left.ArithmeticService.GetSubtraction:output_type -> framework_left.Answer
+	0, // 6: framework_left.ArithmeticService.GetMultiplication:output_type -> framework_left.Answer
+	0, // 7: framework_left.ArithmeticService.GetDivision:output_type -> framework_left.Answer
 	4, // [4:8] is the sub-list for method output_type
 	0, // [0:4] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name

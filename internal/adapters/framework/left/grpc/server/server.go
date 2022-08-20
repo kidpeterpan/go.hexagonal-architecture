@@ -1,15 +1,17 @@
-package pb
+package server
 
 import (
 	"context"
 
 	"go.hexagonal-architecture/internal/ports"
+	pb2 "go.hexagonal-architecture/internal/ports/framework_left"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
 
 type Adapter struct {
 	api ports.ApiPort
+	pb2.UnimplementedArithmeticServiceServer
 }
 
 func NewAdapter(api ports.ApiPort) *Adapter {
@@ -18,8 +20,8 @@ func NewAdapter(api ports.ApiPort) *Adapter {
 	}
 }
 
-func (a Adapter) GetAddition(ctx context.Context, req *OperationParameters) (*Answer, error) {
-	ans := &Answer{}
+func (a Adapter) GetAddition(_ context.Context, req *pb2.OperationParameters) (*pb2.Answer, error) {
+	ans := &pb2.Answer{}
 
 	if req.GetX() == 0 || req.GetY() == 0 {
 		return ans, status.Error(codes.InvalidArgument, "missing required")
@@ -30,14 +32,14 @@ func (a Adapter) GetAddition(ctx context.Context, req *OperationParameters) (*An
 		return ans, status.Error(codes.Internal, "unexpected error")
 	}
 
-	ans = &Answer{
+	ans = &pb2.Answer{
 		Value: answer,
 	}
 	return ans, nil
 }
 
-func (a Adapter) GetSubtraction(ctx context.Context, req *OperationParameters) (*Answer, error) {
-	ans := &Answer{}
+func (a Adapter) GetSubtraction(_ context.Context, req *pb2.OperationParameters) (*pb2.Answer, error) {
+	ans := &pb2.Answer{}
 
 	if req.GetX() == 0 || req.GetY() == 0 {
 		return ans, status.Error(codes.InvalidArgument, "missing required")
@@ -48,14 +50,14 @@ func (a Adapter) GetSubtraction(ctx context.Context, req *OperationParameters) (
 		return ans, status.Error(codes.Internal, "unexpected error")
 	}
 
-	ans = &Answer{
+	ans = &pb2.Answer{
 		Value: answer,
 	}
 	return ans, nil
 }
 
-func (a Adapter) GetMultiplication(ctx context.Context, req *OperationParameters) (*Answer, error) {
-	ans := &Answer{}
+func (a Adapter) GetMultiplication(_ context.Context, req *pb2.OperationParameters) (*pb2.Answer, error) {
+	ans := &pb2.Answer{}
 
 	if req.GetX() == 0 || req.GetY() == 0 {
 		return ans, status.Error(codes.InvalidArgument, "missing required")
@@ -66,14 +68,14 @@ func (a Adapter) GetMultiplication(ctx context.Context, req *OperationParameters
 		return ans, status.Error(codes.Internal, "unexpected error")
 	}
 
-	ans = &Answer{
+	ans = &pb2.Answer{
 		Value: answer,
 	}
 	return ans, nil
 }
 
-func (a Adapter) GetDivision(ctx context.Context, req *OperationParameters) (*Answer, error) {
-	ans := &Answer{}
+func (a Adapter) GetDivision(_ context.Context, req *pb2.OperationParameters) (*pb2.Answer, error) {
+	ans := &pb2.Answer{}
 
 	if req.GetX() == 0 || req.GetY() == 0 {
 		return ans, status.Error(codes.InvalidArgument, "missing required")
@@ -84,10 +86,8 @@ func (a Adapter) GetDivision(ctx context.Context, req *OperationParameters) (*An
 		return ans, status.Error(codes.Internal, "unexpected error")
 	}
 
-	ans = &Answer{
+	ans = &pb2.Answer{
 		Value: answer,
 	}
 	return ans, nil
 }
-
-func (a Adapter) mustEmbedUnimplementedArithmeticServiceServer() {}

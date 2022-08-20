@@ -28,20 +28,21 @@
     │   └── framework
     │       ├── left
     │       │   └── grpc
-    │       │       ├── pb
-    │       │       │   ├── arithmetic_svc.pb.go
-    │       │       │   ├── arithmetic_svc_grpc.pb.go
-    │       │       │   └── server.go
-    │       │       └── proto
-    │       │           └── arithmetic_svc.proto
+    │       │       ├── proto
+    │       │       │   └── arithmetic_svc.proto
+    │       │       └── server
+    │       │           └── server.go
     │       └── right
     │           └── db
     │               └── db.go
     └── ports
         ├── app.go
         ├── core.go
-        ├── framework_left.go
+        ├── framework_left
+        │   ├── arithmetic_svc.pb.go
+        │   └── arithmetic_svc_grpc.pb.go
         └── framework_right.go
+
 ```
 
 ## start deps

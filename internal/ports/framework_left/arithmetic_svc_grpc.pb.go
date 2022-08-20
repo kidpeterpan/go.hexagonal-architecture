@@ -4,10 +4,11 @@
 // - protoc             v3.19.4
 // source: arithmetic_svc.proto
 
-package pb
+package framework_left
 
 import (
 	context "context"
+
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -38,7 +39,7 @@ func NewArithmeticServiceClient(cc grpc.ClientConnInterface) ArithmeticServiceCl
 
 func (c *arithmeticServiceClient) GetAddition(ctx context.Context, in *OperationParameters, opts ...grpc.CallOption) (*Answer, error) {
 	out := new(Answer)
-	err := c.cc.Invoke(ctx, "/pb.ArithmeticService/GetAddition", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/framework_left.ArithmeticService/GetAddition", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +48,7 @@ func (c *arithmeticServiceClient) GetAddition(ctx context.Context, in *Operation
 
 func (c *arithmeticServiceClient) GetSubtraction(ctx context.Context, in *OperationParameters, opts ...grpc.CallOption) (*Answer, error) {
 	out := new(Answer)
-	err := c.cc.Invoke(ctx, "/pb.ArithmeticService/GetSubtraction", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/framework_left.ArithmeticService/GetSubtraction", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +57,7 @@ func (c *arithmeticServiceClient) GetSubtraction(ctx context.Context, in *Operat
 
 func (c *arithmeticServiceClient) GetMultiplication(ctx context.Context, in *OperationParameters, opts ...grpc.CallOption) (*Answer, error) {
 	out := new(Answer)
-	err := c.cc.Invoke(ctx, "/pb.ArithmeticService/GetMultiplication", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/framework_left.ArithmeticService/GetMultiplication", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +66,7 @@ func (c *arithmeticServiceClient) GetMultiplication(ctx context.Context, in *Ope
 
 func (c *arithmeticServiceClient) GetDivision(ctx context.Context, in *OperationParameters, opts ...grpc.CallOption) (*Answer, error) {
 	out := new(Answer)
-	err := c.cc.Invoke(ctx, "/pb.ArithmeticService/GetDivision", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/framework_left.ArithmeticService/GetDivision", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -122,7 +123,7 @@ func _ArithmeticService_GetAddition_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pb.ArithmeticService/GetAddition",
+		FullMethod: "/framework_left.ArithmeticService/GetAddition",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ArithmeticServiceServer).GetAddition(ctx, req.(*OperationParameters))
@@ -140,7 +141,7 @@ func _ArithmeticService_GetSubtraction_Handler(srv interface{}, ctx context.Cont
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pb.ArithmeticService/GetSubtraction",
+		FullMethod: "/framework_left.ArithmeticService/GetSubtraction",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ArithmeticServiceServer).GetSubtraction(ctx, req.(*OperationParameters))
@@ -158,7 +159,7 @@ func _ArithmeticService_GetMultiplication_Handler(srv interface{}, ctx context.C
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pb.ArithmeticService/GetMultiplication",
+		FullMethod: "/framework_left.ArithmeticService/GetMultiplication",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ArithmeticServiceServer).GetMultiplication(ctx, req.(*OperationParameters))
@@ -176,7 +177,7 @@ func _ArithmeticService_GetDivision_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pb.ArithmeticService/GetDivision",
+		FullMethod: "/framework_left.ArithmeticService/GetDivision",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ArithmeticServiceServer).GetDivision(ctx, req.(*OperationParameters))
@@ -188,7 +189,7 @@ func _ArithmeticService_GetDivision_Handler(srv interface{}, ctx context.Context
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var ArithmeticService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pb.ArithmeticService",
+	ServiceName: "framework_left.ArithmeticService",
 	HandlerType: (*ArithmeticServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
